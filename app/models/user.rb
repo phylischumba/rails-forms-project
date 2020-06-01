@@ -8,6 +8,5 @@ class User < ApplicationRecord
                 format: { with: VALID_EMAIL_REGEX },
                 uniqueness: true
 
-    # VALID_PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
-    validates :password, presence: true,  length: {maximum: 20}
+    validates :password, presence: true, length: { minimum: 8, maximum: 25 }
 end

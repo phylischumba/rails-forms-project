@@ -15,11 +15,13 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       @user.save
       # @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-
+      
 
       if @user.save
+        flash.notice = "User '#{@user.username}' Created!"
         redirect_to users_path
       else
+       flash.notice = "User '#{@user.username}' Not Created!"
         render :new
       end
     end
